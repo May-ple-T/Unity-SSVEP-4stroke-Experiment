@@ -1,42 +1,19 @@
-# Guideline for Unity to work with EMOTIV LSL Interface
+# 輝度変化による運動錯視を注視した際の脳波データを取得する実験システム
 
-The following guide describes how Unity works with EMOTIV LSL Interface.
+## 輝度変化による運動錯視について
+輝度変化による運動錯視は，連続して画像を提示することで起こる無限運動錯視である．
+
+[![Image from Gyazo](https://i.gyazo.com/3adc8766e15d1c3b39f0f309d6fdb32e.gif)](https://gyazo.com/3adc8766e15d1c3b39f0f309d6fdb32e)
+
+（参照：http://www.georgemather.com/MotionDemos/FourstrokeMP4.html）
 
 ## Prerequisites
 * Install Unity (recommend version 2018.4.22f1 or later)
+* Install Emotiv Pro
 
 ## How to receive data from EMOTIV LSL Outlet stream in Unity
 
-1. Go to **Lab Streaming Layer** page, **Outlet** tab in EmotivPRO, choose the desire **Data stream** type and **Data format**.
-Click the **Start** button to start streaming.
-
-2. Open DataReceiver.unity in Demos folder (`.\Assets\LSL4Unity\Demos\`).
-
-3. Build a standalone application or run on Editor directly. Choose a stream name then hit **Connect** button to connect to the selected LSL stream. The header and data will be displayed like this:
-<p align="center">
-  <img src="https://github.com/Emotiv/labstreaminglayer/blob/emotiv-lsl/docs/images/unity_data_receiver.png">
-</p>
-
-4. Hit **Disconnect** to disconnect to the stream.
-
-## How to send marker from Unity to EMOTIV LSL Inlet
-
-1. Open MarkerSender.unity in Demos folder (`.\Assets\LSL4Unity\Demos\`). The demo will create markers event every one second.
-  * Each marker event contains 3 channels `MarkerTime`, `MarkerValue` and `CurrentTime`.
-  * The `MarkerTime` and `CurrentTime` are epoch time in double format - we need both for the time synchornization between machines.
-  * The `MarkerTime` is time of marker event. The `MarkerValue` is value of marker. `The CurrentTime` is current epoch time of processing.
-
-2. Build a standalone application or run on Editor directly. Then hit **Start** button to start sending markers to LSL network.
-<p align="center">
-  <img src="https://github.com/Emotiv/labstreaminglayer/blob/emotiv-lsl/docs/images/unity-send-marker.png">
-</p>
-
-3. Go to **Lab Streaming Layer** page, **Inlet** tab on EmotivPRO, choose **Unity_LSL** in stream name. Then click the **Connect** button.
-
-4. Markers will be added to data stream as the vertical red lines:
-<p align="center">
-  <img src="https://github.com/Emotiv/labstreaminglayer/blob/emotiv-lsl/docs/images/marker-added.png">
-</p>
+https://github.com/Emotiv/labstreaminglayer/blob/master/examples/unity/readme.md
 
 ## Reference
 
